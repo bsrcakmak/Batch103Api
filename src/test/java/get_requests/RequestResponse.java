@@ -26,11 +26,30 @@ public class RequestResponse {
      */
 
     public static void main(String[] args) {
-
+        String url = "https://restful-booker.herokuapp.com/booking/55";
         //Get request nasıl yapılır:
-        Response response = given().when().get("https://restful-booker.herokuapp.com/booking/55");
+        Response response = given().when().get(url);
 
         response.prettyPrint();//prettyPrint() methodu response datayı yazdırır.
+
+        //Status Code nasıl yazdırılır:
+        System.out.println("Status Code: " + response.statusCode());
+
+        //Content Type nasıl yazdırılır:
+        System.out.println("Content Type: "+response.contentType());
+
+        //Status Line nasıl yazdırılır:
+        System.out.println("Status Line: "+response.statusLine());
+
+        //Header nasıl yazdırılır:
+        System.out.println(response.header("Connection"));
+        System.out.println(response.header("Server"));
+
+        //Headers nasıl yazdırılır:
+        System.out.println(response.getHeaders());
+
+        //Time nasıl yazdırılır
+        System.out.println("Time: "+response.getTime());
 
 
     }
