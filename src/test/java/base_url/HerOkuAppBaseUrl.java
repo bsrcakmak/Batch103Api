@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class JsonPlaceHolderBaseUrl {
+public class HerOkuAppBaseUrl {
 
     protected RequestSpecification spec;  // RequestSpecification bir Interface'dir
     // (protected yaparsak package private gibi olur)
@@ -13,7 +13,7 @@ public class JsonPlaceHolderBaseUrl {
 
     @Before // Her test methodundan once calisir
     public void setUp(){
-        spec = new RequestSpecBuilder().setAccept(ContentType.JSON).setBaseUri("https://jsonplaceholder.typicode.com").build();
+        spec = new RequestSpecBuilder().setAccept(ContentType.JSON).setBaseUri("https://restful-booker.herokuapp.com").build();
     }
     
 

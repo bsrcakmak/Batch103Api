@@ -51,5 +51,10 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
                         "title",hasItem("quis eius est sint explicabo"),
                         "userId",hasItems(2,7,9));
 
+
+        // hasSize() ==> eleman sayisini assert eder
+        // hasItem() ==> contains() methodu gibi bir objenin icerilip icerilmedigini assert eder
+        // hasItems() ==> containsAll() methodu gibi birden fazla objenin icerilip icerilmedigini assert eder
+
     }
 }
