@@ -13,7 +13,7 @@ public class HerOkuAppBaseUrl {
 
     @Before // Her test methodundan once calisir
     public void setUp(){
-        spec = new RequestSpecBuilder().setAccept(ContentType.JSON).setBaseUri("https://restful-booker.herokuapp.com").build();
+        spec = new RequestSpecBuilder().setBaseUri("https://restful-booker.herokuapp.com").build();
     }
     
 

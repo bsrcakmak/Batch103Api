@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertTrue;
 
 public class Get05 extends HerOkuAppBaseUrl {
 
@@ -34,7 +35,12 @@ public class Get05 extends HerOkuAppBaseUrl {
         Response response = given().spec(spec).when().get("/{first}");
         response.prettyPrint();
 
-        // Do assertion
+        //Do Assertion
+        response.then().statusCode(200);//Status code is 200
+
+        // Among the data there should be someone whose firstname is "Sally" and last name is "Brown"
+        assertTrue(response.asString().contains("bookingid"));
+
 
 
     }
