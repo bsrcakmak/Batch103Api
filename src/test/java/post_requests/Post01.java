@@ -42,14 +42,6 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
         spec.pathParam("first","todos");
 
         // Set the expected data ==> Payland
-        /*
-        {
-                 "userId": 55,
-                 "title": "Tidy your room",
-                 "completed": false
-                }
-         */
-
         Map<String,Object> expectedData = new HashMap<>();
         expectedData.put("userId",55.0);
         expectedData.put("title","Tidy your room");
@@ -61,11 +53,14 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
         Response response = given().spec(spec).contentType(ContentType.JSON).when().body(expectedData).post("/{first}");
         response.prettyPrint();
 
-        //** serialization(javayi jsona cevirmek) veya de-serializatin(jsondan javaya cevirmek) icin "gson" dependency'sini ekledik,
-        //** java objemizi json objemize cevirmek icin kullandik
+        // ** serialization(javayi jsona cevirmek) veya de-serializatin(jsondan javaya cevirmek) icin "gson" dependency'sini ekledik,
+        // ** java objemizi json objemize cevirmek icin kullandik
+        // ==> 2 turlu De-Serialization vardir
+        //       i) Gson: Google tarafindan uretilmistir
+        //      ii) Object Mapper: En populer olani
 
         // Do Assertion
-        Map<String,Object> actualData = response.as(HashMap.class);  // DE-Serialization ==> JSON to JAVA
+        Map<String,Object> actualData = response.as(HashMap.class);  // DE-Serialization ==> JSON to JAVA ==> as() methodu ile gerceklestirdik
         System.out.println("actualData = " + actualData);
 
         assertEquals(201,response.statusCode());
