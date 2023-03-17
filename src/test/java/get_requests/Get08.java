@@ -54,8 +54,16 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
 
         assertEquals(200, response.statusCode());
         assertEquals(expectedData.get("completed"),actualData.get("completed"));
-        assertEquals(expectedData.get("title"),actualData.get("ctitle"));
+        assertEquals(expectedData.get("title"),actualData.get("title"));
         assertEquals(expectedData.get("userId"),actualData.get("userId"));
+
+        // And header "Via" is "1.1 vegur"
+        assertEquals(expectedData.get("Via"),response.header("Via"));
+
+        // And header "Server" is "cloudflare"
+        assertEquals(expectedData.get("Server"),response.header("Server"));
+
+
 
     }
 }
